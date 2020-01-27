@@ -1,0 +1,81 @@
+<div class="background">
+<form class="form-style-5" (ngSubmit)="onSubmit(sampleForm)" #sampleForm="ngForm">
+    <h1>Registration form</h1>
+    <legend><span class="number">1</span>Name</legend>
+    <label>First Name: </label>
+    <div *ngIf="field1.invalid && (field1.dirty || field1.touched)" class="alert alert-danger" >
+        <div *ngIf="field1.errors.required">
+            Name is required
+        </div>
+    </div>
+    <input type="text" name="field1"  placeholder="Firstname" [(ngModel)]="firstname" #field1="ngModel" required/>
+    
+    <label>Last Name: </label>
+    <div *ngIf="field2.invalid && field2.touched" class="alert">
+        <div *ngIf="field2.errors.required">
+            Name is required
+        </div>
+    </div>
+    <input type="text" name="field2" required placeholder="Lastname" [(ngModel)]="lastname" #field2="ngModel" required/>
+    
+    <legend><span class="number">2</span>Address</legend>
+    <label>Barangay: </label>
+    <div *ngIf="field3.invalid && field3.touched" class="alert">
+        <div *ngIf="field3.errors.required">
+            Barangay is required
+        </div>
+    </div>
+    <input type="text" name="field3" placeholder="Barangay" [(ngModel)]="barangay" #field3="ngModel" required/>
+    
+    <label>Municipality</label>
+    <div *ngIf="field4.invalid && field4.touched" class="alert" >
+        <div *ngIf="field4.errors.required">
+            Municipality is required
+        </div>
+    </div>
+    <input type="text" name="field4" placeholder="Municipality" [(ngModel)]="municipality" #field4="ngModel" required/>
+    
+    <label>City: </label>
+    <div *ngIf="field5.invalid && field5.touched" class="alert">
+        <div *ngIf="field5.errors.required">
+            City is required
+        </div>
+    </div>
+    <input [(ngModel)]="city" type="text" placeholder="City" name="field5" #field5="ngModel" required/>
+    
+    <label>Region: </label>
+    <select id="job" [(ngModel)]="region" placeholder="Region" name="name" #name="ngModel">
+        <option>Region I</option>
+        <option>Region II</option>
+        <option>Region III</option>
+        <option>Region IV</option>
+        <option>Region V</option>
+        <option>Region VI</option>
+        <option>Region VII</option>
+        <option>Region VIII</option>
+        <option>Region IX</option>
+        <option>Region X</option>
+    </select>
+    <legend><span class="number">3</span>Contact Information</legend>
+    <label>Phone Number: </label>
+    <div *ngIf="field6.invalid && field6.touched" class="alert">
+        <div class="alert alert-danger"*ngIf="field6.errors.required">
+            Phone number is required
+        </div>
+    </div>
+    <input [(ngModel)]="phonenumber" type="number" placeholder="Phone Number" name="field6" #field6="ngModel" required/>
+
+    <label>Email Address: </label>
+    <div *ngIf="field7.invalid && field7.touched" class="alert">
+        <div *ngIf="field7.errors.required">
+            Email Address is required
+        </div>
+    </div>
+    <input [(ngModel)]="emailaddress"  name="field7" #field7="ngModel" required/>
+
+    <input  type="submit" [disabled]="!sampleForm.form.valid" value="submit"/>
+
+</form>
+
+<app-table  (toPut)="onEdit($event)" [toPass]="toPass"></app-table>
+</div>

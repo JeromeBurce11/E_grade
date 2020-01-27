@@ -1,0 +1,18 @@
+
+<table >
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+    </tr>
+
+    <tr *ngFor="let data of toPass; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{data.firstname}} {{data.lastname}}</td>
+        <td>{{data.barangay}} {{data.municipality}} {{data.city}}</td>
+        <td>{{data.phonenumber}} ({{data.emailaddress}})  <button (click)="onEdited(data)">Edit</button></td>
+    </tr>
+</table>
+
